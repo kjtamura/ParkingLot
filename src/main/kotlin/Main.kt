@@ -1,7 +1,16 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+fun main() {
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+    val parkingLot = ParkingLot(20)
+
+    do {
+        val input = readln().split(" ")
+        when (input[0]) {
+            "park" -> {
+                val car = Car(input[1], input[2])
+                car.park(parkingLot)
+            }
+            "leave" -> parkingLot.leave(input[1].toInt())
+            "exit" -> break
+        }
+    } while (true)
 }
