@@ -9,4 +9,8 @@ class Car (_registrationNum: String = "", _color: String = ""){
     fun leave(parkingLot: ParkingLot, spot: Int) {
         parkingLot.leave(spot)
     }
+
+    fun printCarInfo() {
+        println("${this.registrationNum} ${this.color}")
+    }
 }
