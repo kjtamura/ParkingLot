@@ -78,4 +78,15 @@ class ParkingLot(size: Int = 0) {
             }
         }
     }
+
+    fun find(color: String = "", reg: String = ""): MutableList<Spot> {
+        val list = mutableListOf<Spot>()
+        for (spot in parkingSpots) {
+            val car = spot?.occupied()
+            if (car != null && (car.color.lowercase() == color.lowercase()) || car?.registrationNum == reg) {
+                list.add(spot)
+            }
+        }
+        return list
+    }
 }
